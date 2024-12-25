@@ -1,0 +1,3 @@
+<template>
+    Dashboard Layout
+</template>
