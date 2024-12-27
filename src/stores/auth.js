@@ -43,8 +43,8 @@ export const useAuthStore = defineStore('auth', {
       const {data,status} = await ecommerceAxiosClient.post('/login', formData);
       console.log(data) ;
       if(data){
-        this.setToken(data.token);
-        this.setUsername(data.name);
+        this.setToken(data.data.token);
+        this.setUsername(data.data.name);
         this.message = data.message;
         callback(data.status); 
       }
