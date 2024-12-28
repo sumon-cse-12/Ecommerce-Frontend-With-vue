@@ -35,6 +35,16 @@
                 </router-link>
               </li>
 
+               
+              <li class="nav-item">
+                <router-link to="/category"  class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                   Category
+                  </p>
+                </router-link>
+              </li>
+
               <li class="nav-item">
                 <router-link to="/dashboard"  class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
