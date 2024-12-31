@@ -17,9 +17,13 @@ const router = createRouter({
         },
 
         {
-          path: '/category', name: 'category', component: () => import('@/views/Category/Index.vue'),
-          // path: '/category/create', name: 'category-create', component: () => import('@/views/Category/Create.vue'),
-          // path: '/category/edit/:id', name: 'category-edit', component: () => import('@/views/Category/Edit.vue')
+          path: '/category', name: 'category', component: () => import('@/views/Category/Index.vue')
+        },
+        {
+          path: '/category/create', name: 'category-create', component: () => import('@/views/Category/Create.vue')
+        },
+        {
+          path: '/category/edit/:id', name: 'category-edit', component: () => import('@/views/Category/Edit.vue')
         }
 
       ]
