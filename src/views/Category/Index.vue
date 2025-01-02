@@ -2,6 +2,7 @@
 import { ref, reactive, inject, onMounted } from "vue";
 import { useCategoryStore } from "@/stores/category";
 import { useRouter } from "vue-router";
+import config from "@/utils/config"; 
 
 const categoryStore = useCategoryStore();
 const router = useRouter();
@@ -62,6 +63,7 @@ onMounted(() => {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Description</th>
                 <th scope="col">Image</th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
@@ -74,9 +76,10 @@ onMounted(() => {
               >
                 <td>{{ index + 1 }}</td>
                 <td>{{ category.category_name }}</td>
+                <td>{{ category.category_description }}</td>
                 <td>
                   <img
-                    :src="category.category_image"
+                    :src="`${config.ecommerceApiHost}uploads/${category.category_image}`"
                     alt="category image"
                     style="width: 50px; height: 50px"
                   />
@@ -86,7 +89,7 @@ onMounted(() => {
                     <input
                       type="checkbox"
                       :checked="category.is_active"
-                      @change.prevent="categoryStore.changeStatusCategory(category.category_id)"
+                      @change.prevent="categoryStore.changeStatus(category.category_id)"
                     />
                     <span class="custom-switch-slider"></span>
                   </label>
@@ -103,8 +106,26 @@ onMounted(() => {
             </tbody>
           </table>
         </div>
+       
       </div>
+
+      <div class="d-flex justify-content-end mt-3">
+        <v-pagination
+            v-model="categoryStore.pagination.current_page"
+            :pages="categoryStore.pagination.last_page"
+            :range="1"
+            active-color="#fff"
+            @update:modelValue="
+              categoryStore.getCategories(
+                categoryStore.pagination.current_page,
+                categoryStore.dataLimit
+              )
+            "
+          />
+      </div>
+      
     </div>
+   
   </div>
 </template>
 

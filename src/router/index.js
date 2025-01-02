@@ -17,7 +17,7 @@ const router = createRouter({
         },
 
         {
-          path: '/category', name: 'category', component: () => import('@/views/Category/Index.vue')
+          path: '/category', name: 'category-index', component: () => import('@/views/Category/Index.vue')
         },
         {
           path: '/category/create', name: 'category-create', component: () => import('@/views/Category/Create.vue')
