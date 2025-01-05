@@ -19,7 +19,7 @@ const schema = {
 };
 
 const oncChange = (e) => {
-    categoryStore.editFormData.file = e.target.files[0];
+    categoryStore.editFormData.image = e.target.files[0];
   
 };
 

@@ -24,7 +24,16 @@ const router = createRouter({
         },
         {
           path: '/category/edit/:id', name: 'category-edit', component: () => import('@/views/Category/Edit.vue')
-        }
+        },
+        {
+          path: '/product', name: 'product-index', component: () => import('@/views/Product/Index.vue')
+        },
+        {
+          path: '/product/create', name: 'product-create', component: () => import('@/views/Product/Create.vue')
+        },
+        {
+          path: '/product/test', name: 'product-test', component: () => import('@/views/Product/Test.vue')
+        },
 
       ]
     },
